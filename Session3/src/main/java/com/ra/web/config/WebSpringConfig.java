@@ -26,6 +26,6 @@ public class WebSpringConfig extends AbstractAnnotationConfigDispatcherServletIn
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setForceEncoding(true);
         filter.setEncoding("UTF-8");
-        return super.getServletFilters();
+        return new Filter[] {filter};
     }
 }
