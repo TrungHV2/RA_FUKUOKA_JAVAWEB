@@ -1,6 +1,8 @@
 package com.ra.web.controller;
 
+import com.ra.web.entity.Computer;
 import com.ra.web.model.RegisterAccount;
+import com.ra.web.repository.ComputerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,12 +10,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/home")
 public class HomeController {
+    private ComputerRepository computerRepository;
+
+    public HomeController(ComputerRepository computerRepository) {
+        this.computerRepository = computerRepository;
+    }
+
     @GetMapping("/index")
     public String index(HttpServletRequest request, Model model) {
+        List<Computer> data = computerRepository.findAll();
         HttpSession session = request.getSession();
         if (session.getAttribute("user") == null) {
             return "redirect:/home/login";

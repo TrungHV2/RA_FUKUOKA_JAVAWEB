@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/admin/users")
 public class UsersController {
     private UserService userService;
     private ModelMapper modelMapper;
