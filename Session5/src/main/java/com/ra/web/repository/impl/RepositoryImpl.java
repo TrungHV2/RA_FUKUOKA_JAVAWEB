@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class RepositoryImpl<T> implements com.ra.web.repository.Repository<T> {
+public class RepositoryImpl<T> implements com.ra.web.repository.https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html<T> {
     @Override
     public List<T> findAll(Class<T> entityClass) {
         List<T> result = new ArrayList<>();
